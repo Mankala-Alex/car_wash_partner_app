@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:my_new_app/app/config/constants.dart';
-import 'package:my_new_app/app/controllers/profile/personal_details_controller.dart';
-import 'package:my_new_app/app/theme/app_theme.dart';
+import 'package:car_wash_partner/app/config/constants.dart';
+import 'package:car_wash_partner/app/controllers/profile/personal_details_controller.dart';
+import 'package:car_wash_partner/app/theme/app_theme.dart';
 
 class PersonalDetailsView extends GetView<PersonalDetailsController> {
   const PersonalDetailsView({super.key});
@@ -27,11 +27,11 @@ class PersonalDetailsView extends GetView<PersonalDetailsController> {
             decoration: BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.circular(22),
-              boxShadow: [
+              boxShadow: const [
                 BoxShadow(
                   color: Colors.grey,
                   blurRadius: 20,
-                  offset: const Offset(0, 10),
+                  offset: Offset(0, 10),
                 ),
               ],
             ),

@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:my_new_app/app/helpers/flutter_toast.dart';
-import 'package:my_new_app/app/helpers/shared_preferences.dart';
-import 'package:my_new_app/app/repositories/auth/auth_repository.dart';
-import 'package:my_new_app/app/routes/app_routes.dart';
+import 'package:dio/dio.dart';
+import 'package:car_wash_partner/app/helpers/flutter_toast.dart';
+import 'package:car_wash_partner/app/helpers/shared_preferences.dart';
+import 'package:car_wash_partner/app/helpers/secure_store.dart';
+import 'package:car_wash_partner/app/repositories/auth/auth_repository.dart';
+import 'package:car_wash_partner/app/routes/app_routes.dart';
 
 class LoginController extends GetxController {
   final AuthRepository _repo = AuthRepository();
@@ -34,8 +36,10 @@ class LoginController extends GetxController {
 
       if (resp.data["success"] == true) {
         final partner = resp.data["partner"];
+        final token = resp.data["token"] ?? "";
 
-        await SharedPrefsHelper.setString("partnerId", partner["id"]);
+        // Store partner info in SharedPrefs
+        await SharedPrefsHelper.setString("partnerId", partner["id"] ?? "");
         await SharedPrefsHelper.setString(
             "partnerCompanyName", partner["company_name"] ?? "");
         await SharedPrefsHelper.setString(
@@ -44,18 +48,29 @@ class LoginController extends GetxController {
             "partnerOwnerName", partner["owner_name"] ?? "");
         await SharedPrefsHelper.setString(
             "partnerImage", partner["image_url"] ?? "");
-        await SharedPrefsHelper.setString("partnerToken", resp.data["token"]);
         await SharedPrefsHelper.setString("partnerCity", partner["city"] ?? "");
         await SharedPrefsHelper.setString(
             "partnerDistrict", partner["district"] ?? "");
         await SharedPrefsHelper.setString(
             "partnerCountry", partner["country"] ?? "");
+
+        // Store token in secure storage (FlutterSecureStore)
+        // This is where the API service looks for the token
+        await FlutterSecureStore()
+            .storeSingleValue(SharedPrefsHelper.accessToken, token);
+
+        successToast("Login successful!");
         Get.offAllNamed(Routes.dashboard);
       } else {
-        Get.snackbar("Login Failed", "Invalid credentials");
+        final errorMsg = resp.data["message"] ?? "Invalid credentials";
+        errorToast(errorMsg);
       }
+    } on DioException catch (e) {
+      final errorMsg =
+          e.response?.data["message"] ?? e.message ?? "Login failed";
+      errorToast(errorMsg);
     } catch (e) {
-      Get.snackbar("Error", "Login failed");
+      errorToast("An unexpected error occurred: $e");
     } finally {
       isLoading.value = false;
     }

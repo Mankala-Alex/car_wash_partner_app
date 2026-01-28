@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:my_new_app/app/controllers/auth/login_controller.dart';
-import 'package:my_new_app/app/custome_widgets/loader.dart';
-import 'package:my_new_app/app/theme/app_theme.dart';
+import 'package:car_wash_partner/app/controllers/auth/login_controller.dart';
+import 'package:car_wash_partner/app/custome_widgets/loader.dart';
+import 'package:car_wash_partner/app/theme/app_theme.dart';
 
 class LoginPageView extends GetView<LoginController> {
   const LoginPageView({super.key});

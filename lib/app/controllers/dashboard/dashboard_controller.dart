@@ -1,9 +1,9 @@
 import 'package:get/get.dart';
-import 'package:my_new_app/app/helpers/shared_preferences.dart';
-import 'package:my_new_app/app/models/dashboard/partner_service_history_model.dart';
-import 'package:my_new_app/app/repositories/auth/auth_repository.dart';
-import 'package:my_new_app/app/repositories/scanning_qr_code/scanning_repository.dart';
-import 'package:my_new_app/app/routes/app_routes.dart';
+import 'package:car_wash_partner/app/helpers/shared_preferences.dart';
+import 'package:car_wash_partner/app/models/dashboard/partner_service_history_model.dart';
+import 'package:car_wash_partner/app/repositories/auth/auth_repository.dart';
+import 'package:car_wash_partner/app/repositories/scanning_qr_code/scanning_repository.dart';
+import 'package:car_wash_partner/app/routes/app_routes.dart';
 
 class DashboardController extends GetxController {
   var selectedIndex = 0.obs;

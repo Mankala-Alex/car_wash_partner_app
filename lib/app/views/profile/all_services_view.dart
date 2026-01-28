@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:my_new_app/app/controllers/profile/all_services_controller.dart';
-import 'package:my_new_app/app/theme/app_theme.dart';
-import 'package:my_new_app/app/views/profile/add_service_view.dart';
+import 'package:car_wash_partner/app/controllers/profile/all_services_controller.dart';
+import 'package:car_wash_partner/app/theme/app_theme.dart';
+import 'package:car_wash_partner/app/views/profile/add_service_view.dart';
 
 class AllServicesView extends GetView<AllServicesController> {
   const AllServicesView({super.key});

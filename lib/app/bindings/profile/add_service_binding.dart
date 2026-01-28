@@ -1,5 +1,5 @@
 import 'package:get/get.dart';
-import 'package:my_new_app/app/controllers/profile/add_service_controller.dart';
+import 'package:car_wash_partner/app/controllers/profile/add_service_controller.dart';
 
 class AddServiceBinding extends Bindings {
   @override

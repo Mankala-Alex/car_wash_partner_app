@@ -1,118 +1,121 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:my_new_app/app/controllers/scanning_flow/confirmation_screen_controller.dart';
-import 'package:my_new_app/app/routes/app_routes.dart';
+import 'package:car_wash_partner/app/controllers/scanning_flow/confirmation_screen_controller.dart';
+import 'package:car_wash_partner/app/routes/app_routes.dart';
 
 class ConfirmationScreenView extends GetView<ConfirmationScreenController> {
   const ConfirmationScreenView({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: const Color(0xfff8f8f8),
-      appBar: AppBar(
-        automaticallyImplyLeading: false,
-        backgroundColor: Colors.white,
-        elevation: 0,
-        title: const Text(
-          "Service Confirmation",
-          style: TextStyle(
-            color: Colors.black,
-            fontWeight: FontWeight.w700,
+    return PopScope(
+      canPop: false,
+      child: Scaffold(
+        backgroundColor: const Color(0xfff8f8f8),
+        appBar: AppBar(
+          automaticallyImplyLeading: false,
+          backgroundColor: Colors.white,
+          elevation: 0,
+          title: const Text(
+            "Service Confirmation",
+            style: TextStyle(
+              color: Colors.black,
+              fontWeight: FontWeight.w700,
+            ),
           ),
+          centerTitle: true,
         ),
-        centerTitle: true,
-      ),
-      body: SingleChildScrollView(
-        padding: const EdgeInsets.all(20),
-        child: Column(
-          children: [
-            // ---------------- SUCCESS ICON ----------------
-            Container(
-              padding: const EdgeInsets.all(30),
-              decoration: BoxDecoration(
-                color: Colors.green.withOpacity(0.1),
-                shape: BoxShape.circle,
+        body: SingleChildScrollView(
+          padding: const EdgeInsets.all(20),
+          child: Column(
+            children: [
+              // ---------------- SUCCESS ICON ----------------
+              Container(
+                padding: const EdgeInsets.all(30),
+                decoration: BoxDecoration(
+                  color: Colors.green.withOpacity(0.1),
+                  shape: BoxShape.circle,
+                ),
+                child: const Icon(
+                  Icons.check_circle,
+                  color: Colors.green,
+                  size: 120,
+                ),
               ),
-              child: const Icon(
-                Icons.check_circle,
-                color: Colors.green,
-                size: 120,
+
+              const SizedBox(height: 20),
+
+              const Text(
+                "Service Completed!",
+                style: TextStyle(
+                  fontSize: 24,
+                  fontWeight: FontWeight.w700,
+                ),
               ),
-            ),
 
-            const SizedBox(height: 20),
+              const SizedBox(height: 10),
 
-            const Text(
-              "Service Completed!",
-              style: TextStyle(
-                fontSize: 24,
-                fontWeight: FontWeight.w700,
+              const Text(
+                "The transaction has been processed\nsuccessfully for ticket #992-A.",
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  color: Colors.black54,
+                  fontSize: 15,
+                  height: 1.4,
+                ),
               ),
-            ),
 
-            const SizedBox(height: 10),
+              const SizedBox(height: 30),
 
-            const Text(
-              "The transaction has been processed\nsuccessfully for ticket #992-A.",
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                color: Colors.black54,
-                fontSize: 15,
-                height: 1.4,
+              // ---------------- CUSTOMER CARD ----------------
+              _infoCard(
+                title: "CUSTOMER",
+                name: controller.customerName,
+                icon: Icons.person,
+                iconColor: Colors.blue,
               ),
-            ),
 
-            const SizedBox(height: 30),
+              const SizedBox(height: 14),
 
-            // ---------------- CUSTOMER CARD ----------------
-            _infoCard(
-              title: "CUSTOMER",
-              name: controller.customerName,
-              icon: Icons.person,
-              iconColor: Colors.blue,
-            ),
+              // ---------------- VEHICLE CARD ----------------
+              _infoCard(
+                title: "VEHICLE",
+                name: controller.vehicleInfo,
+                subtitle: "Silver • XYZ-8821",
+                icon: Icons.directions_car,
+                iconColor: Colors.orange,
+              ),
 
-            const SizedBox(height: 14),
+              const SizedBox(height: 25),
 
-            // ---------------- VEHICLE CARD ----------------
-            _infoCard(
-              title: "VEHICLE",
-              name: controller.vehicleInfo,
-              subtitle: "Silver • XYZ-8821",
-              icon: Icons.directions_car,
-              iconColor: Colors.orange,
-            ),
+              // ---------------- ORDER SUMMARY ----------------
+              _summaryCard(),
 
-            const SizedBox(height: 25),
+              const SizedBox(height: 30),
 
-            // ---------------- ORDER SUMMARY ----------------
-            _summaryCard(),
+              // ---------------- RETURN BUTTON ----------------
 
-            const SizedBox(height: 30),
-
-            // ---------------- RETURN BUTTON ----------------
-
-            SizedBox(
-              width: double.infinity,
-              height: 55,
-              child: ElevatedButton(
-                onPressed: () {
-                  Get.toNamed(Routes.dashboard);
-                },
-                child: const Text(
-                  "Cash Collected",
-                  style: TextStyle(
-                    fontSize: 17,
-                    color: Colors.white,
-                    fontWeight: FontWeight.w700,
+              SizedBox(
+                width: double.infinity,
+                height: 55,
+                child: ElevatedButton(
+                  onPressed: () {
+                    Get.toNamed(Routes.dashboard);
+                  },
+                  child: const Text(
+                    "Cash Collected",
+                    style: TextStyle(
+                      fontSize: 17,
+                      color: Colors.white,
+                      fontWeight: FontWeight.w700,
+                    ),
                   ),
                 ),
               ),
-            ),
 
-            const SizedBox(height: 40),
-          ],
+              const SizedBox(height: 40),
+            ],
+          ),
         ),
       ),
     );

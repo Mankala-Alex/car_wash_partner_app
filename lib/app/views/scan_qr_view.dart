@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mobile_scanner/mobile_scanner.dart';
-import 'package:my_new_app/app/controllers/scan_qr_controller.dart';
-import 'package:my_new_app/app/theme/app_theme.dart';
+import 'package:car_wash_partner/app/controllers/scan_qr_controller.dart';
+import 'package:car_wash_partner/app/theme/app_theme.dart';
 
 class ScanQrView extends GetView<ScanQrController> {
   const ScanQrView({super.key});

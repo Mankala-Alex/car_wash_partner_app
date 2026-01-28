@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mobile_scanner/mobile_scanner.dart';
-import 'package:my_new_app/app/custome_widgets/coupon_code_dailogbox.dart';
-import 'package:my_new_app/app/helpers/flutter_toast.dart';
-import 'package:my_new_app/app/models/scanning_flow/validate_coupon_model.dart';
-import 'package:my_new_app/app/repositories/scanning_qr_code/scanning_repository.dart';
-import 'package:my_new_app/app/routes/app_routes.dart';
+import 'package:car_wash_partner/app/custome_widgets/coupon_code_dailogbox.dart';
+import 'package:car_wash_partner/app/helpers/flutter_toast.dart';
+import 'package:car_wash_partner/app/models/scanning_flow/validate_coupon_model.dart';
+import 'package:car_wash_partner/app/repositories/scanning_qr_code/scanning_repository.dart';
+import 'package:car_wash_partner/app/routes/app_routes.dart';
 
 class ScanQrController extends GetxController {
   final ScanningRepository repository = ScanningRepository();
@@ -129,9 +129,9 @@ class ScanQrController extends GetxController {
 // import 'package:flutter/material.dart';
 // import 'package:get/get.dart';
 // import 'package:mobile_scanner/mobile_scanner.dart';
-// import 'package:my_new_app/app/custome_widgets/coupon_code_dailogbox.dart';
-// import 'package:my_new_app/app/helpers/flutter_toast.dart';
-// import 'package:my_new_app/app/routes/app_routes.dart';
+// import 'package:car_wash_partner/app/custome_widgets/coupon_code_dailogbox.dart';
+// import 'package:car_wash_partner/app/helpers/flutter_toast.dart';
+// import 'package:car_wash_partner/app/routes/app_routes.dart';
 
 // class ScanQrController extends GetxController {
 //   // CAMERA CONTROLLER

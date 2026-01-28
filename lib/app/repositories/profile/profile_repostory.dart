@@ -7,7 +7,7 @@ class ProfileRepository {
   Future<Response> getPartnerServices(String partnerId) async {
     return await ApiService.get(
       "${EndPoints.apigetPartnerServices}/$partnerId/services",
-      requireAuthToken: false,
+      requireAuthToken: true,
     );
   }
 
@@ -18,7 +18,7 @@ class ProfileRepository {
     return await ApiService.post(
       "${EndPoints.apigetPartnerServices}/$partnerId/services",
       body,
-      requireAuthToken: false,
+      requireAuthToken: true,
     );
   }
 
@@ -30,7 +30,7 @@ class ProfileRepository {
     return await ApiService.put(
       "/partners/$partnerId/services/$serviceId",
       body,
-      requireAuthToken: false,
+      requireAuthToken: true,
     );
   }
 
@@ -40,7 +40,7 @@ class ProfileRepository {
   ) async {
     return await ApiService.delete(
       "/partners/$partnerId/services/$serviceId",
-      requireAuthToken: false,
+      requireAuthToken: true,
     );
   }
 

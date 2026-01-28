@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:my_new_app/app/models/dashboard/partner_service_history_model.dart';
+import 'package:car_wash_partner/app/models/dashboard/partner_service_history_model.dart';
 import '../../controllers/dashboard/dashboard_controller.dart';
 import '../../theme/app_theme.dart';
 
@@ -157,11 +157,11 @@ class Page1View extends GetView<DashboardController> {
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(18),
-        boxShadow: [
+        boxShadow: const [
           BoxShadow(
             color: Colors.grey,
             blurRadius: 10,
-            offset: const Offset(0, 3),
+            offset: Offset(0, 3),
           )
         ],
       ),

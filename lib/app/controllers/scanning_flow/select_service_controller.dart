@@ -1,6 +1,6 @@
 import 'package:get/get.dart';
-import 'package:my_new_app/app/models/profile/all_services_model.dart';
-import 'package:my_new_app/app/repositories/profile/profile_repostory.dart';
+import 'package:car_wash_partner/app/models/profile/all_services_model.dart';
+import 'package:car_wash_partner/app/repositories/profile/profile_repostory.dart';
 import '../../helpers/shared_preferences.dart';
 
 class SelectServiceController extends GetxController {

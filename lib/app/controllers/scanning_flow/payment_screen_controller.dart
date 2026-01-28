@@ -1,8 +1,9 @@
 import 'package:get/get.dart';
-import 'package:my_new_app/app/repositories/scanning_qr_code/scanning_repository.dart';
-import 'package:my_new_app/app/routes/app_routes.dart';
-import 'package:my_new_app/app/helpers/flutter_toast.dart';
-import 'package:my_new_app/app/models/profile/all_services_model.dart';
+import 'package:car_wash_partner/app/repositories/scanning_qr_code/scanning_repository.dart';
+import 'package:car_wash_partner/app/routes/app_routes.dart';
+import 'package:car_wash_partner/app/helpers/flutter_toast.dart';
+import 'package:car_wash_partner/app/models/profile/all_services_model.dart';
+import 'package:car_wash_partner/app/controllers/dashboard/dashboard_controller.dart';
 
 class PaymentScreenController extends GetxController {
   final ScanningRepository repository = ScanningRepository();
@@ -60,6 +61,14 @@ class PaymentScreenController extends GetxController {
       successToast("Payment completed");
 
       final history = resp.data["data"]["service_history"];
+
+      // 🔥 Refresh the dashboard history immediately after redemption
+      try {
+        final dashboardController = Get.find<DashboardController>();
+        await dashboardController.fetchPartnerHistory();
+      } catch (_) {
+        // Dashboard controller might not be loaded yet, that's ok
+      }
 
       Get.offNamed(
         Routes.confirmationScreen,

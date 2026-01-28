@@ -6,13 +6,13 @@ class ScanningRepository {
   //otp up
   Future<Response> postValidateCoupon(requestBody) async {
     return await ApiService.post(EndPoints.apipostvalidatecoupon, requestBody,
-        requireAuthToken: false);
+        requireAuthToken: true);
   }
 
   Future<Response> getPartnerCouponDetails(String couponCode) async {
     return await ApiService.get(
       "${EndPoints.apigetcustomerdetails}?coupon_code=$couponCode",
-      requireAuthToken: false,
+      requireAuthToken: true,
     );
   }
 
@@ -20,14 +20,14 @@ class ScanningRepository {
     return await ApiService.post(
       EndPoints.apipostredeemcoupon,
       body,
-      requireAuthToken: false,
+      requireAuthToken: true,
     );
   }
 
   Future<Response> getPartnerHistory(String partnerId) async {
     return await ApiService.get(
       "${EndPoints.apigetPartnerServiceHistory}/$partnerId/history",
-      requireAuthToken: false,
+      requireAuthToken: true,
     );
   }
 }

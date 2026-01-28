@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:my_new_app/app/controllers/profile/add_service_controller.dart';
-import 'package:my_new_app/app/models/profile/all_services_model.dart';
-import 'package:my_new_app/app/theme/app_theme.dart';
+import 'package:car_wash_partner/app/controllers/profile/add_service_controller.dart';
+import 'package:car_wash_partner/app/models/profile/all_services_model.dart';
+import 'package:car_wash_partner/app/theme/app_theme.dart';
 
 class AddServiceView extends StatelessWidget {
   final bool isEdit;

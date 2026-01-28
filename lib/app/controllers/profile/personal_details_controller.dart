@@ -1,5 +1,5 @@
 import 'package:get/get.dart';
-import 'package:my_new_app/app/helpers/shared_preferences.dart';
+import 'package:car_wash_partner/app/helpers/shared_preferences.dart';
 
 class PersonalDetailsController extends GetxController {
   var companyName = "".obs;
