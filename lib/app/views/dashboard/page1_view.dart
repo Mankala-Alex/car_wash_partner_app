@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:car_wash_partner/app/models/dashboard/partner_service_history_model.dart';
 import '../../controllers/dashboard/dashboard_controller.dart';
 import '../../theme/app_theme.dart';
 
@@ -140,188 +139,185 @@ class Page1View extends GetView<DashboardController> {
 
                 final item = controller.historyList.first; // ✅ LATEST ITEM
 
-                return _previousServiceCard(item);
+                return Container(
+                  padding: const EdgeInsets.all(16),
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(18),
+                    boxShadow: const [
+                      BoxShadow(
+                        color: Colors.grey,
+                        blurRadius: 10,
+                        offset: Offset(0, 3),
+                      )
+                    ],
+                  ),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      // SERVICE + AMOUNT
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Expanded(
+                            child: Text(
+                              item.serviceName,
+                              style: const TextStyle(
+                                fontSize: 16,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ),
+                          Text(
+                            "₹${item.finalAmount.toStringAsFixed(2)}",
+                            style: const TextStyle(
+                              color: Colors.orange,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 15,
+                            ),
+                          ),
+                        ],
+                      ),
+
+                      const SizedBox(height: 8),
+
+                      Text(
+                        "Customer: ${item.customerName}",
+                        style: const TextStyle(color: Colors.black54),
+                      ),
+
+                      const SizedBox(height: 6),
+
+                      Text(
+                        "Vehicle: ${item.vehicleNumber}",
+                        style: const TextStyle(color: Colors.black),
+                      ),
+
+                      const SizedBox(height: 6),
+
+                      Text(
+                        "Admin Payable: ₹${item.adminPayable.toStringAsFixed(2)}",
+                        style: const TextStyle(
+                          color: Colors.green,
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+                    ],
+                  ),
+                );
               }),
             ),
 
             const SizedBox(height: 30),
+            const SizedBox(height: 20),
           ],
         ),
       ),
     );
   }
 
-  Widget _previousServiceCard(PartnerServiceHistoryModel item) {
-    return Container(
-      padding: const EdgeInsets.all(16),
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(18),
-        boxShadow: const [
-          BoxShadow(
-            color: Colors.grey,
-            blurRadius: 10,
-            offset: Offset(0, 3),
-          )
-        ],
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          // SERVICE + AMOUNT
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Expanded(
-                child: Text(
-                  item.serviceName,
-                  style: const TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              ),
-              Text(
-                "₹${item.finalAmount.toStringAsFixed(2)}",
-                style: const TextStyle(
-                  color: Colors.orange,
-                  fontWeight: FontWeight.bold,
-                  fontSize: 15,
-                ),
-              ),
-            ],
-          ),
-
-          const SizedBox(height: 8),
-
-          Text(
-            "Customer: ${item.customerName}",
-            style: const TextStyle(color: Colors.black54),
-          ),
-
-          const SizedBox(height: 6),
-
-          Text(
-            "Vehicle: ${item.vehicleNumber}",
-            style: const TextStyle(color: Colors.black),
-          ),
-
-          const SizedBox(height: 6),
-
-          Text(
-            "Admin Payable: ₹${item.adminPayable.toStringAsFixed(2)}",
-            style: const TextStyle(
-              color: Colors.green,
-              fontWeight: FontWeight.w600,
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-
   // ==================== JOB CARD ====================
-  Widget _jobCard(String name, String car, String time, String status) {
-    return Container(
-      padding: const EdgeInsets.all(16),
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(18),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black12.withOpacity(0.06),
-            blurRadius: 10,
-            offset: const Offset(0, 3),
-          )
-        ],
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(name,
-              style:
-                  const TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
-          const SizedBox(height: 4),
-          Text(car, style: const TextStyle(color: Colors.black54)),
-          const SizedBox(height: 12),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Row(
-                children: [
-                  const Icon(Icons.access_time,
-                      size: 18, color: Colors.black45),
-                  const SizedBox(width: 4),
-                  Text(time, style: const TextStyle(color: Colors.black)),
-                ],
-              ),
-              Container(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
-                decoration: BoxDecoration(
-                  color: status == "IN PROGRESS"
-                      ? Colors.blue.withOpacity(0.15)
-                      : Colors.orange.withOpacity(0.15),
-                  borderRadius: BorderRadius.circular(20),
-                ),
-                child: Text(
-                  status,
-                  style: TextStyle(
-                    color:
-                        status == "IN PROGRESS" ? Colors.blue : Colors.orange,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              ),
-            ],
-          )
-        ],
-      ),
-    );
-  }
+  // Widget _jobCard(String name, String car, String time, String status) {
+  //   return Container(
+  //     padding: const EdgeInsets.all(16),
+  //     decoration: BoxDecoration(
+  //       color: Colors.white,
+  //       borderRadius: BorderRadius.circular(18),
+  //       boxShadow: [
+  //         BoxShadow(
+  //           color: Colors.black12.withOpacity(0.06),
+  //           blurRadius: 10,
+  //           offset: const Offset(0, 3),
+  //         )
+  //       ],
+  //     ),
+  //     child: Column(
+  //       crossAxisAlignment: CrossAxisAlignment.start,
+  //       children: [
+  //         Text(name,
+  //             style:
+  //                 const TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
+  //         const SizedBox(height: 4),
+  //         Text(car, style: const TextStyle(color: Colors.black54)),
+  //         const SizedBox(height: 12),
+  //         Row(
+  //           mainAxisAlignment: MainAxisAlignment.spaceBetween,
+  //           children: [
+  //             Row(
+  //               children: [
+  //                 const Icon(Icons.access_time,
+  //                     size: 18, color: Colors.black45),
+  //                 const SizedBox(width: 4),
+  //                 Text(time, style: const TextStyle(color: Colors.black)),
+  //               ],
+  //             ),
+  //             Container(
+  //               padding:
+  //                   const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+  //               decoration: BoxDecoration(
+  //                 color: status == "IN PROGRESS"
+  //                     ? Colors.blue.withOpacity(0.15)
+  //                     : Colors.orange.withOpacity(0.15),
+  //                 borderRadius: BorderRadius.circular(20),
+  //               ),
+  //               child: Text(
+  //                 status,
+  //                 style: TextStyle(
+  //                   color:
+  //                       status == "IN PROGRESS" ? Colors.blue : Colors.orange,
+  //                   fontWeight: FontWeight.bold,
+  //                 ),
+  //               ),
+  //             ),
+  //           ],
+  //         )
+  //       ],
+  //     ),
+  //   );
+  // }
 
   // ==================== RECENT ACTIVITY CARD ====================
-  Widget _recentCard(IconData icon, String name, String subtitle) {
-    return Container(
-      padding: const EdgeInsets.all(16),
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(16),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black12.withOpacity(0.05),
-            blurRadius: 8,
-            offset: const Offset(0, 3),
-          )
-        ],
-      ),
-      child: Row(
-        children: [
-          CircleAvatar(
-            radius: 20,
-            backgroundColor: AppColors.secondaryLight.withOpacity(0.2),
-            child: Icon(icon, color: Colors.green),
-          ),
-          const SizedBox(width: 12),
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(name,
-                    style: const TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 16,
-                    )),
-                Text(subtitle,
-                    style: const TextStyle(
-                      color: Colors.black54,
-                    )),
-              ],
-            ),
-          ),
-          const Icon(Icons.arrow_forward_ios, size: 16, color: Colors.black26),
-        ],
-      ),
-    );
-  }
+  // Widget _recentCard(IconData icon, String name, String subtitle) {
+  //   return Container(
+  //     padding: const EdgeInsets.all(16),
+  //     decoration: BoxDecoration(
+  //       color: Colors.white,
+  //       borderRadius: BorderRadius.circular(16),
+  //       boxShadow: [
+  //         BoxShadow(
+  //           color: Colors.black12.withOpacity(0.05),
+  //           blurRadius: 8,
+  //           offset: const Offset(0, 3),
+  //         )
+  //       ],
+  //     ),
+  //     child: Row(
+  //       children: [
+  //         CircleAvatar(
+  //           radius: 20,
+  //           backgroundColor: AppColors.secondaryLight.withOpacity(0.2),
+  //           child: Icon(icon, color: Colors.green),
+  //         ),
+  //         const SizedBox(width: 12),
+  //         Expanded(
+  //           child: Column(
+  //             crossAxisAlignment: CrossAxisAlignment.start,
+  //             children: [
+  //               Text(name,
+  //                   style: const TextStyle(
+  //                     fontWeight: FontWeight.bold,
+  //                     fontSize: 16,
+  //                   )),
+  //               Text(subtitle,
+  //                   style: const TextStyle(
+  //                     color: Colors.black54,
+  //                   )),
+  //             ],
+  //           ),
+  //         ),
+  //         const Icon(Icons.arrow_forward_ios, size: 16, color: Colors.black26),
+  //       ],
+  //     ),
+  //   );
+  // }
 }

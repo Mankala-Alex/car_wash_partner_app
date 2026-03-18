@@ -113,16 +113,43 @@ class Page2View extends GetView<DashboardController> {
 
             const SizedBox(height: 10),
 
-            // ---------------- END TEXT ----------------
-            const Center(
-              child: Padding(
-                padding: EdgeInsets.only(bottom: 20),
-                child: Text(
-                  "END OF HISTORY",
-                  style: TextStyle(color: Colors.grey, fontSize: 13),
+            Obx(() {
+              if (controller.historyList.isEmpty) return const SizedBox();
+
+              return Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16),
+                child: Container(
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 18, vertical: 14),
+                  decoration: BoxDecoration(
+                    color: AppColors.secondaryLight.withOpacity(0.15),
+                    borderRadius: BorderRadius.circular(16),
+                    border: Border.all(color: AppColors.secondaryLight),
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      const Text(
+                        "Total Admin Payable",
+                        style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+                      Text(
+                        "₹${controller.totalAdminPayable.toStringAsFixed(2)}",
+                        style: const TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.green,
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
-              ),
-            )
+              );
+            }),
+            const SizedBox(height: 10),
           ],
         ),
       ),

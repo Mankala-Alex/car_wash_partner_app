@@ -88,6 +88,14 @@ class DashboardController extends GetxController {
     }
   }
 
+// 🔥 Total Admin Payable (reactive)
+  double get totalAdminPayable {
+    return historyList.fold(
+      0.0,
+      (sum, item) => sum + item.adminPayable,
+    );
+  }
+
   void onSearchChanged(String query) {
     searchQuery.value = query;
 
