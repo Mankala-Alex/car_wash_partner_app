@@ -12,9 +12,9 @@ class PersonalDetailsView extends GetView<PersonalDetailsController> {
     return Scaffold(
       backgroundColor: AppColors.bgLight,
       appBar: AppBar(
-        title: const Text(
-          "Personal Details",
-          style: TextStyle(fontWeight: FontWeight.w700),
+        title: Text(
+          "personal_details".tr,
+          style: const TextStyle(fontWeight: FontWeight.w700),
         ),
         centerTitle: true,
         backgroundColor: Colors.white,
@@ -88,11 +88,11 @@ class PersonalDetailsView extends GetView<PersonalDetailsController> {
                         ),
                       ),
                       const SizedBox(height: 24),
-                      _infoRow("Owner Name", controller.ownerName.value),
-                      _infoRow("Partner Code", controller.partnerCode.value),
-                      _infoRow("City", controller.city.value),
-                      _infoRow("District", controller.district.value),
-                      _infoRow("Country", controller.country.value),
+                      _infoRow("owner_name".tr, controller.ownerName.value),
+                      _infoRow("partner_code".tr, controller.partnerCode.value),
+                      _infoRow("city".tr, controller.city.value),
+                      _infoRow("district".tr, controller.district.value),
+                      _infoRow("country".tr, controller.country.value),
                     ],
                   ),
                 ),

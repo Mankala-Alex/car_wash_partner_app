@@ -1,3 +1,4 @@
+import 'package:car_wash_partner/app/localization/localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
@@ -50,6 +51,8 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       title: Environment.appName,
       locale: initialLocale,
+      translations: Localization(),
+      fallbackLocale: Localization.fallbackLocale,
       debugShowCheckedModeBanner: false,
       theme: AppTheme.lightTheme,
       initialRoute: AppPages.initialPage,

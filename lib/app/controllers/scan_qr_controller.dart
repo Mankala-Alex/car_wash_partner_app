@@ -44,7 +44,7 @@ class ScanQrController extends GetxController {
         controller: codeCtrl,
         onSubmit: () {
           if (codeCtrl.text.trim().isEmpty) {
-            errorToast("Please enter a valid code");
+            errorToast("please_enter_a_valid_code".tr);
             return;
           }
 
@@ -64,7 +64,7 @@ class ScanQrController extends GetxController {
     final code = capture.barcodes.first.rawValue ?? "";
     scannedCode.value = code;
     if (code.isEmpty) {
-      errorToast("Invalid QR Code");
+      errorToast("invalid_qr_code".tr);
       return;
     }
 
@@ -87,7 +87,7 @@ class ScanQrController extends GetxController {
       final validateModel = ValidateCouponModel.fromJson(validateResp.data);
 
       if (!validateModel.success || validateModel.data == null) {
-        errorToast("Invalid coupon");
+        errorToast("invalid_coupon".tr);
         resetScanner();
         return;
       }
@@ -98,7 +98,7 @@ class ScanQrController extends GetxController {
       final detailsData = detailsResp.data['data'];
 
       if (detailsData == null) {
-        errorToast("Failed to load details");
+        errorToast("failed_to_load_details".tr);
         resetScanner();
         return;
       }
@@ -109,7 +109,7 @@ class ScanQrController extends GetxController {
         arguments: detailsData,
       );
     } catch (e) {
-      errorToast("Validation failed");
+      errorToast("validation_failed".tr);
       resetScanner();
     } finally {
       isLoading.value = false;

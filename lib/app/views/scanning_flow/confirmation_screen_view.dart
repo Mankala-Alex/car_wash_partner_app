@@ -16,9 +16,9 @@ class ConfirmationScreenView extends GetView<ConfirmationScreenController> {
           automaticallyImplyLeading: false,
           backgroundColor: Colors.white,
           elevation: 0,
-          title: const Text(
-            "Service Confirmation",
-            style: TextStyle(
+          title: Text(
+            "service_confirmation".tr,
+            style: const TextStyle(
               color: Colors.black,
               fontWeight: FontWeight.w700,
             ),
@@ -45,9 +45,9 @@ class ConfirmationScreenView extends GetView<ConfirmationScreenController> {
 
               const SizedBox(height: 20),
 
-              const Text(
-                "Service Completed!",
-                style: TextStyle(
+              Text(
+                "service_completed".tr,
+                style: const TextStyle(
                   fontSize: 24,
                   fontWeight: FontWeight.w700,
                 ),
@@ -69,7 +69,7 @@ class ConfirmationScreenView extends GetView<ConfirmationScreenController> {
 
               // ---------------- CUSTOMER CARD ----------------
               _infoCard(
-                title: "CUSTOMER",
+                title: "customer_details".tr,
                 name: controller.customerName,
                 icon: Icons.person,
                 iconColor: Colors.blue,
@@ -79,7 +79,7 @@ class ConfirmationScreenView extends GetView<ConfirmationScreenController> {
 
               // ---------------- VEHICLE CARD ----------------
               _infoCard(
-                title: "VEHICLE",
+                title: "vehicle_info".tr,
                 name: controller.vehicleInfo,
                 subtitle: "Silver • XYZ-8821",
                 icon: Icons.directions_car,
@@ -214,9 +214,9 @@ class ConfirmationScreenView extends GetView<ConfirmationScreenController> {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              const Text(
-                "Order Summary",
-                style: TextStyle(
+              Text(
+                "order_summary".tr,
+                style: const TextStyle(
                   fontWeight: FontWeight.w700,
                   fontSize: 17,
                 ),
@@ -228,9 +228,9 @@ class ConfirmationScreenView extends GetView<ConfirmationScreenController> {
                   color: Colors.green.withOpacity(0.12),
                   borderRadius: BorderRadius.circular(12),
                 ),
-                child: const Text(
-                  "PAID",
-                  style: TextStyle(
+                child: Text(
+                  "paid".tr,
+                  style: const TextStyle(
                     color: Colors.green,
                     fontWeight: FontWeight.w700,
                     fontSize: 13,

@@ -25,11 +25,9 @@ import 'package:car_wash_partner/app/views/scan_qr_view.dart';
 
 import '../bindings/auth/lang_selection_binding.dart';
 import '../bindings/auth/login_binding.dart';
-import '../bindings/auth/otp_binding.dart';
 import '../bindings/splash_screen_bindings.dart';
 import '../views/auth/lang_selection_view.dart';
 import '../views/auth/login_page_view.dart';
-import '../views/auth/otp_screen_view.dart';
 import '../views/splash_screen_view.dart';
 import 'app_routes.dart';
 
@@ -52,11 +50,11 @@ class AppPages {
       page: () => const LoginPageView(),
       binding: LoginBinding(),
     ),
-    GetPage(
-      name: Routes.otpPage,
-      page: () => const OtpScreenView(),
-      binding: OtpBinding(),
-    ),
+    // GetPage(
+    //   name: Routes.otpPage,
+    //   page: () => const OtpScreenView(),
+    //   binding: OtpBinding(),
+    // ),
 
     //dashboard
 

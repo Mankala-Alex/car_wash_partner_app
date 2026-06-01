@@ -27,9 +27,9 @@ class CouponCodeDailogbox extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             // Title
-            const Text(
-              "Enter QR Code",
-              style: TextStyle(
+            Text(
+              "enter_qr_code".tr,
+              style: const TextStyle(
                 fontSize: 20,
                 fontWeight: FontWeight.w700,
               ),
@@ -41,7 +41,7 @@ class CouponCodeDailogbox extends StatelessWidget {
             TextField(
               controller: controller,
               decoration: InputDecoration(
-                hintText: "Enter code manually",
+                hintText: "enter_code_manually".tr,
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(14),
                 ),
@@ -58,8 +58,8 @@ class CouponCodeDailogbox extends StatelessWidget {
               children: [
                 TextButton(
                   onPressed: () => Get.back(),
-                  child: const Text("Cancel",
-                      style: TextStyle(color: Colors.black)),
+                  child: Text("cancel".tr,
+                      style: const TextStyle(color: Colors.black)),
                 ),
                 const SizedBox(width: 10),
                 ElevatedButton(
@@ -72,9 +72,9 @@ class CouponCodeDailogbox extends StatelessWidget {
                       borderRadius: BorderRadius.circular(12),
                     ),
                   ),
-                  child: const Text(
-                    "Submit",
-                    style: TextStyle(color: Colors.white),
+                  child: Text(
+                    "submit".tr,
+                    style: const TextStyle(color: Colors.white),
                   ),
                 ),
               ],

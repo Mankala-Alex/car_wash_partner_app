@@ -35,15 +35,15 @@ class AddServiceView extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  isEdit ? "Edit Service" : "Add New Service",
+                  isEdit ? "edit_service".tr : "add_new_service".tr,
                   style: const TextStyle(
                       fontSize: 22, fontWeight: FontWeight.bold),
                 ),
                 const SizedBox(height: 20),
-                _field("Service Name", controller.nameCtrl),
-                _field("Description", controller.descCtrl, maxLines: 3),
+                _field("service_name".tr, controller.nameCtrl),
+                _field("description".tr, controller.descCtrl, maxLines: 3),
                 _field(
-                  "Price",
+                  "price".tr,
                   controller.priceCtrl,
                   keyboard: TextInputType.number,
                 ),
@@ -64,7 +64,7 @@ class AddServiceView extends StatelessWidget {
                     child: controller.isLoading.value
                         ? const CircularProgressIndicator(color: Colors.white)
                         : Text(
-                            isEdit ? "Update Service" : "Add Service",
+                            isEdit ? "update_service".tr : "add_service".tr,
                             style: const TextStyle(
                               fontSize: 17,
                               fontWeight: FontWeight.w700,

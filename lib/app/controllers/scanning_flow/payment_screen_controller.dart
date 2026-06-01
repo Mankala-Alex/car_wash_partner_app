@@ -36,7 +36,7 @@ class PaymentScreenController extends GetxController {
     vehicleNumber = args['vehicle_number'] ?? "N/A";
 
     if (couponCode.isEmpty || partnerId.isEmpty) {
-      errorToast("Invalid payment data");
+      errorToast("invalid_payment_data".tr);
     }
   }
 
@@ -54,11 +54,11 @@ class PaymentScreenController extends GetxController {
       });
 
       if (resp.data["success"] != true) {
-        errorToast("Failed to redeem coupon");
+        errorToast("failed_to_redeem_coupon".tr);
         return;
       }
 
-      successToast("Payment completed");
+      successToast("payment_completed".tr);
 
       final history = resp.data["data"]["service_history"];
 
@@ -83,7 +83,7 @@ class PaymentScreenController extends GetxController {
         },
       );
     } catch (e) {
-      errorToast("Something went wrong");
+      errorToast("something_went_wrong".tr);
     } finally {
       isLoading.value = false;
     }

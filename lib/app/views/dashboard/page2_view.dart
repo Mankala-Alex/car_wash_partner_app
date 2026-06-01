@@ -16,11 +16,11 @@ class Page2View extends GetView<DashboardController> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             // ---------------- HEADER ----------------
-            const Padding(
-              padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
               child: Text(
-                "Service History",
-                style: TextStyle(
+                "service_history".tr,
+                style: const TextStyle(
                     fontSize: 22,
                     fontWeight: FontWeight.bold,
                     color: Colors.black),
@@ -50,9 +50,9 @@ class Page2View extends GetView<DashboardController> {
                           const SizedBox(width: 10),
                           Expanded(
                             child: TextField(
-                              decoration: const InputDecoration(
+                              decoration: InputDecoration(
                                 hintText:
-                                    "Search service name or customer name ",
+                                    "search_service_name_or_customer_name".tr,
                                 border: InputBorder.none,
                               ),
                               onChanged: controller.onSearchChanged,
@@ -70,11 +70,11 @@ class Page2View extends GetView<DashboardController> {
             const SizedBox(height: 25),
 
             // ---------------- RECENT ACTIVITY TITLE ----------------
-            const Padding(
-              padding: EdgeInsets.symmetric(horizontal: 20),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20),
               child: Text(
-                "Recent Activity",
-                style: TextStyle(
+                "recent_activity".tr,
+                style: const TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.w700,
                     color: Colors.black),
@@ -92,10 +92,10 @@ class Page2View extends GetView<DashboardController> {
 
                 // ❌ No data after search
                 if (controller.filteredHistoryList.isEmpty) {
-                  return const Center(
+                  return Center(
                     child: Text(
-                      "No history found",
-                      style: TextStyle(fontSize: 14, color: Colors.grey),
+                      "no_history_found".tr,
+                      style: const TextStyle(fontSize: 14, color: Colors.grey),
                     ),
                   );
                 }
@@ -129,9 +129,9 @@ class Page2View extends GetView<DashboardController> {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      const Text(
-                        "Total Admin Payable",
-                        style: TextStyle(
+                      Text(
+                        "total_admin_payable".tr,
+                        style: const TextStyle(
                           fontSize: 16,
                           fontWeight: FontWeight.w600,
                         ),
@@ -158,18 +158,18 @@ class Page2View extends GetView<DashboardController> {
 
   String _day(DateTime d) => d.day.toString();
   String _month(DateTime d) => [
-        "Jan",
-        "Feb",
-        "Mar",
-        "Apr",
-        "May",
-        "Jun",
-        "Jul",
-        "Aug",
-        "Sep",
-        "Oct",
-        "Nov",
-        "Dec"
+        "jan".tr,
+        "feb".tr,
+        "mar".tr,
+        "april".tr,
+        "may".tr,
+        "jun".tr,
+        "jul".tr,
+        "aug".tr,
+        "sep".tr,
+        "oct".tr,
+        "nov".tr,
+        "dec".tr
       ][d.month - 1];
 
   Widget _historyCard(PartnerServiceHistoryModel item) {
@@ -197,8 +197,9 @@ class Page2View extends GetView<DashboardController> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  const Text("DATE",
-                      style: TextStyle(fontSize: 12, color: Colors.black54)),
+                  Text("date".tr,
+                      style:
+                          const TextStyle(fontSize: 12, color: Colors.black54)),
                   Text(_day(item.createdAt),
                       style: const TextStyle(
                           fontSize: 22, fontWeight: FontWeight.bold)),
@@ -246,20 +247,21 @@ class Page2View extends GetView<DashboardController> {
 
                     const SizedBox(height: 8),
 
-                    Text("Customer: ${item.customerName}",
+                    Text("customer".tr + ": ${item.customerName}",
                         style:
                             const TextStyle(fontSize: 13, color: Colors.brown)),
 
                     const SizedBox(height: 6),
 
-                    Text("Vehicle: ${item.vehicleNumber}",
+                    Text("vehicle".tr + ": ${item.vehicleNumber}",
                         style:
                             const TextStyle(fontSize: 13, color: Colors.black)),
 
                     const SizedBox(height: 6),
 
                     Text(
-                      "Admin Payable: ₹${item.adminPayable.toStringAsFixed(2)}",
+                      "admin_payable".tr +
+                          ": ₹${item.adminPayable.toStringAsFixed(2)}",
                       style: const TextStyle(
                           fontSize: 13,
                           fontWeight: FontWeight.w600,

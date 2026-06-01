@@ -31,17 +31,17 @@ class CustomConfirmationDialog extends StatelessWidget {
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15.0)),
       backgroundColor: AppColors.bgLight,
       title: Text(
-        header,
+        header.tr,
         style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
       ),
-      content: Text(body, style: const TextStyle(fontSize: 16)),
+      content: Text(body.tr, style: const TextStyle(fontSize: 16)),
       actions: <Widget>[
         Visibility(
           visible: isCancel ?? true,
           child: TextButton(
             onPressed: onNo ?? Get.back,
             child: Text(
-              noText,
+              noText.tr,
               style: TextStyle(
                 color: Constants.primaryColor,
                 fontWeight: FontWeight.bold,
@@ -52,7 +52,7 @@ class CustomConfirmationDialog extends StatelessWidget {
         TextButton(
           onPressed: onYes,
           child: Text(
-            yesText,
+            yesText.tr,
             style: TextStyle(
               color: Constants.primaryColor,
               fontWeight: FontWeight.w600,

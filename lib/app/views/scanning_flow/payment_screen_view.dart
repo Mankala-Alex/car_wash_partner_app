@@ -21,9 +21,9 @@ class PaymentScreenView extends GetView<PaymentScreenController> {
           //   onPressed: Get.back,
           // ),
           centerTitle: true,
-          title: const Text(
-            'Payment',
-            style: TextStyle(
+          title: Text(
+            'payment'.tr,
+            style: const TextStyle(
               color: Colors.black,
               fontWeight: FontWeight.w600,
             ),
@@ -55,9 +55,9 @@ class PaymentScreenView extends GetView<PaymentScreenController> {
                 ),
                 child: Column(
                   children: [
-                    const Text(
-                      'Scan to complete payment',
-                      style: TextStyle(
+                    Text(
+                      'scan_to_complete_payment'.tr,
+                      style: const TextStyle(
                         fontSize: 14,
                         color: Colors.grey,
                       ),
@@ -82,15 +82,15 @@ class PaymentScreenView extends GetView<PaymentScreenController> {
                       ),
                     ),
                     const SizedBox(height: 16),
-                    const Row(
+                    Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Icon(Icons.wifi_tethering,
+                        const Icon(Icons.wifi_tethering,
                             size: 16, color: Colors.blue),
-                        SizedBox(width: 6),
+                        const SizedBox(width: 6),
                         Text(
-                          'Waiting for scan...',
-                          style: TextStyle(
+                          'waiting_for_scan'.tr,
+                          style: const TextStyle(
                             fontSize: 13,
                             color: Colors.blueGrey,
                           ),
@@ -115,10 +115,10 @@ class PaymentScreenView extends GetView<PaymentScreenController> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const Center(
+                    Center(
                       child: Text(
-                        'TOTAL AMOUNT DUE',
-                        style: TextStyle(
+                        'total_amount_due'.tr,
+                        style: const TextStyle(
                           fontSize: 13,
                           letterSpacing: 1.5,
                           color: Colors.grey,
@@ -190,9 +190,9 @@ class PaymentScreenView extends GetView<PaymentScreenController> {
                       ),
                     ),
                     const SizedBox(height: 24),
-                    const Text(
-                      'Service Breakdown',
-                      style: TextStyle(
+                    Text(
+                      'service_breakdown'.tr,
+                      style: const TextStyle(
                         fontWeight: FontWeight.w600,
                         fontSize: 14,
                       ),
@@ -243,18 +243,18 @@ class PaymentScreenView extends GetView<PaymentScreenController> {
                           borderRadius: BorderRadius.circular(16),
                         ),
                       ),
-                      child: const Row(
+                      child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Text(
-                            'Done',
-                            style: TextStyle(
+                            'done'.tr,
+                            style: const TextStyle(
                               fontWeight: FontWeight.w600,
                               fontSize: 15,
                             ),
                           ),
-                          SizedBox(width: 10),
-                          Icon(Icons.check, size: 18),
+                          const SizedBox(width: 10),
+                          const Icon(Icons.check, size: 18),
                         ],
                       ),
                     ),

@@ -18,9 +18,9 @@ class CustDetailsView extends GetView<CustDetailsController> {
           backgroundColor: AppColors.bgLight,
           automaticallyImplyLeading: false,
           centerTitle: true,
-          title: const Text(
-            "Customer Details",
-            style: TextStyle(
+          title: Text(
+            "customer_details".tr,
+            style: const TextStyle(
               color: Colors.black,
               fontWeight: FontWeight.w700,
             ),
@@ -60,9 +60,9 @@ class CustDetailsView extends GetView<CustDetailsController> {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          const Text(
-                            "Code Verified",
-                            style: TextStyle(
+                          Text(
+                            "code_verified".tr,
+                            style: const TextStyle(
                               fontSize: 17,
                               fontWeight: FontWeight.w700,
                             ),
@@ -86,9 +86,9 @@ class CustDetailsView extends GetView<CustDetailsController> {
               const SizedBox(height: 25),
 
               // ================= CUSTOMER DETAILS ===================
-              const Text(
-                "Customer Details",
-                style: TextStyle(
+              Text(
+                "customer_details".tr,
+                style: const TextStyle(
                   fontSize: 20,
                   fontWeight: FontWeight.w700,
                 ),
@@ -172,9 +172,9 @@ class CustDetailsView extends GetView<CustDetailsController> {
               const SizedBox(height: 30),
 
               // ================= VEHICLE INFO ===================
-              const Text(
-                "Vehicle Info",
-                style: TextStyle(
+              Text(
+                "vehicle_info".tr,
+                style: const TextStyle(
                   fontSize: 20,
                   fontWeight: FontWeight.w700,
                 ),
@@ -198,7 +198,7 @@ class CustDetailsView extends GetView<CustDetailsController> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    _label("VEHICLE"),
+                    _label("vehicle".tr.toUpperCase()),
                     Row(
                       children: [
                         Container(
@@ -223,7 +223,7 @@ class CustDetailsView extends GetView<CustDetailsController> {
                     const SizedBox(height: 22),
 
                     // License plate
-                    _label("LICENSE PLATE"),
+                    _label("license_plate".tr.toUpperCase()),
                     Container(
                       padding: const EdgeInsets.all(12),
                       decoration: BoxDecoration(

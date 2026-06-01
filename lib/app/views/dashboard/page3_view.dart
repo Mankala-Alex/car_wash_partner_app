@@ -56,9 +56,9 @@ class Page3View extends GetView<DashboardController> {
                           color: Colors.orange.shade100,
                           borderRadius: BorderRadius.circular(20),
                         ),
-                        child: const Text(
-                          "PARTNER",
-                          style: TextStyle(
+                        child: Text(
+                          "partner".tr,
+                          style: const TextStyle(
                             color: Colors.orange,
                             fontWeight: FontWeight.w700,
                             fontSize: 12,
@@ -93,7 +93,7 @@ class Page3View extends GetView<DashboardController> {
 
                   // Status
                   Obx(() => Text(
-                        "Owner: ${controller.ownerName.value}",
+                        "owner".tr + ": ${controller.ownerName.value}",
                         style: const TextStyle(
                           fontSize: 16,
                           color: Colors.blueGrey,
@@ -112,9 +112,9 @@ class Page3View extends GetView<DashboardController> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Text(
-                    "ACCOUNT SETTINGS",
-                    style: TextStyle(
+                  Text(
+                    "account_settings".tr,
+                    style: const TextStyle(
                       fontSize: 14,
                       fontWeight: FontWeight.w600,
                       color: Colors.grey,
@@ -124,48 +124,48 @@ class Page3View extends GetView<DashboardController> {
                   const SizedBox(height: 14),
                   _settingsTile(
                     icon: Icons.person,
-                    title: "Personal Details",
-                    subtitle: "Edit profile information",
+                    title: "personal_details".tr,
+                    subtitle: "edit_profile_information".tr,
                     onTap: () {
                       Get.toNamed(Routes.personalDetails);
                     },
                   ),
                   _settingsTile(
                     icon: Icons.add,
-                    title: "Add Services",
-                    subtitle: "Add or remove services offered",
+                    title: "add_services".tr,
+                    subtitle: "add_or_remove_services_offered".tr,
                     onTap: () {
                       Get.toNamed(Routes.allservices);
                     },
                   ),
                   _settingsTile(
                     icon: Icons.lock,
-                    title: "Change Password",
-                    subtitle: "Update security credentials",
+                    title: "change_password".tr,
+                    subtitle: "update_security_credentials".tr,
                     onTap: () {
                       Get.toNamed(Routes.changePassword);
                     },
                   ),
                   _settingsTile(
                     icon: Icons.language,
-                    title: "Change Language",
-                    subtitle: "English (US)",
+                    title: "change_language".tr,
+                    subtitle: "english".tr,
                     onTap: () {
                       Get.toNamed(Routes.langchange);
                     },
                   ),
                   _settingsTile(
                     icon: Icons.logout,
-                    title: "Log Out",
-                    subtitle: "Sign out of your account",
+                    title: "log_out".tr,
+                    subtitle: "sign_out_of_your_account".tr,
                     isLogout: true,
                     onTap: () {
                       Get.dialog(
                         CustomConfirmationDialog(
-                          header: "Logout",
-                          body: "Are you sure you want to logout?",
-                          yesText: "Logout",
-                          noText: "Cancel",
+                          header: "log_out".tr,
+                          body: "are_you_sure_you_want_to_logout".tr,
+                          yesText: "log_out".tr,
+                          noText: "cancel".tr,
                           onYes: () {
                             Get.back(); // close dialog
                             controller.logout(); // actual logout

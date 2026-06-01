@@ -13,165 +13,165 @@ class LoginPageView extends GetView<LoginController> {
 
     return Scaffold(
       backgroundColor: Colors.white,
-      body: SingleChildScrollView(
-        padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 40),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            const SizedBox(height: 40),
+      resizeToAvoidBottomInset: true,
+      body: SafeArea(
+        child: SingleChildScrollView(
+          keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
+          physics: const BouncingScrollPhysics(),
+          padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 40),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              const SizedBox(height: 40),
 
-            // Logo box
-            Container(
-              height: 110,
-              width: 110,
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(26),
-                boxShadow: const [
-                  BoxShadow(
-                    color: Colors.black12,
-                    blurRadius: 10,
-                    offset: Offset(0, 4),
-                  )
-                ],
-              ),
-              child: Padding(
-                padding: const EdgeInsets.all(14),
-                child: Image.asset(
-                  "assets/icons/profile.png",
-                  fit: BoxFit.contain,
+              // Logo box
+              Container(
+                height: 110,
+                width: 110,
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(26),
+                  boxShadow: const [
+                    BoxShadow(
+                      color: Colors.black12,
+                      blurRadius: 10,
+                      offset: Offset(0, 4),
+                    )
+                  ],
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.all(14),
+                  child: Image.asset(
+                    "assets/icons/profile.png",
+                    fit: BoxFit.contain,
+                  ),
                 ),
               ),
-            ),
 
-            const SizedBox(height: 30),
+              const SizedBox(height: 30),
 
-            Text(
-              "Partner Login",
-              style: textTheme.headlineSmall?.copyWith(
-                fontWeight: FontWeight.w700,
-                color: Colors.black,
-              ),
-            ),
-
-            const SizedBox(height: 8),
-
-            Text(
-              "Manage QR discounts efficiently.",
-              style: textTheme.bodyMedium?.copyWith(
-                color: Colors.black54,
-              ),
-            ),
-
-            const SizedBox(height: 40),
-
-            // Username Label
-            Align(
-              alignment: Alignment.centerLeft,
-              child: Text(
-                "Email",
-                style: textTheme.bodyLarge?.copyWith(
-                  fontWeight: FontWeight.w600,
+              Text(
+                "partner_login".tr,
+                style: textTheme.headlineSmall?.copyWith(
+                  fontWeight: FontWeight.w700,
+                  color: Colors.black,
                 ),
               ),
-            ),
 
-            const SizedBox(height: 8),
+              const SizedBox(height: 8),
 
-            // Username Field
-            Container(
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(14),
-                border: Border.all(color: Colors.black12),
-              ),
-              child: TextField(
-                controller: controller.usernameController,
-                decoration: const InputDecoration(
-                  border: InputBorder.none,
-                  prefixIcon: Icon(Icons.person, color: Colors.black45),
-                  hintText: "Enter your username",
-                  contentPadding: EdgeInsets.symmetric(vertical: 14),
+              // Username Label
+              Align(
+                alignment: Alignment.centerLeft,
+                child: Text(
+                  "userid".tr,
+                  style: textTheme.bodyLarge?.copyWith(
+                    fontWeight: FontWeight.w600,
+                  ),
                 ),
               ),
-            ),
 
-            const SizedBox(height: 20),
+              const SizedBox(height: 8),
 
-            // Password Label
-            Align(
-              alignment: Alignment.centerLeft,
-              child: Text(
-                "Password",
-                style: textTheme.bodyLarge?.copyWith(
-                  fontWeight: FontWeight.w600,
-                ),
-              ),
-            ),
-
-            const SizedBox(height: 8),
-
-            // Password Field with Toggle
-            Obx(
-              () => Container(
+              // Username Field
+              Container(
                 decoration: BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.circular(14),
                   border: Border.all(color: Colors.black12),
                 ),
                 child: TextField(
-                  controller: controller.passwordController,
-                  obscureText: controller.isPasswordHidden.value,
+                  controller: controller.usernameController,
                   decoration: InputDecoration(
                     border: InputBorder.none,
-                    prefixIcon:
-                        const Icon(Icons.lock_outline, color: Colors.black45),
-                    suffixIcon: IconButton(
-                      icon: Icon(
-                        controller.isPasswordHidden.value
-                            ? Icons.visibility
-                            : Icons.visibility_off,
-                      ),
-                      onPressed: () {
-                        controller.isPasswordHidden.toggle();
-                      },
-                    ),
-                    hintText: "Enter your password",
+                    prefixIcon: const Icon(Icons.person, color: Colors.black45),
+                    hintText: "enter_your_user_id".tr,
                     contentPadding: const EdgeInsets.symmetric(vertical: 14),
                   ),
                 ),
               ),
-            ),
 
-            const SizedBox(height: 30),
+              const SizedBox(height: 20),
 
-            // Login Button
-            SizedBox(
-              width: double.infinity,
-              height: 55,
-              child: ElevatedButton(
-                onPressed: controller.isLoading.value
-                    ? null
-                    : () => controller.loginPartner(),
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: AppColors.secondaryLight,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(14),
+              // Password Label
+              Align(
+                alignment: Alignment.centerLeft,
+                child: Text(
+                  "password".tr,
+                  style: textTheme.bodyLarge?.copyWith(
+                    fontWeight: FontWeight.w600,
                   ),
                 ),
-                child: Obx(() => controller.isLoading.value
-                    ? loader()
-                    : const Text(
-                        "Log In",
-                        style: TextStyle(
-                          fontSize: 17,
-                          fontWeight: FontWeight.w700,
-                          color: Colors.white,
-                        ),
-                      )),
               ),
-            ),
-          ],
+
+              const SizedBox(height: 8),
+
+              // Password Field with Toggle
+              Obx(
+                () => Container(
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(14),
+                    border: Border.all(color: Colors.black12),
+                  ),
+                  child: TextField(
+                    controller: controller.passwordController,
+                    obscureText: controller.isPasswordHidden.value,
+                    decoration: InputDecoration(
+                      border: InputBorder.none,
+                      prefixIcon:
+                          const Icon(Icons.lock_outline, color: Colors.black45),
+                      suffixIcon: IconButton(
+                        icon: Icon(
+                          controller.isPasswordHidden.value
+                              ? Icons.visibility
+                              : Icons.visibility_off,
+                        ),
+                        onPressed: () {
+                          controller.isPasswordHidden.toggle();
+                        },
+                      ),
+                      hintText: "enter_your_password".tr,
+                      contentPadding: const EdgeInsets.symmetric(vertical: 14),
+                    ),
+                  ),
+                ),
+              ),
+
+              const SizedBox(height: 30),
+
+              // Login Button
+              // Login Button
+              Obx(
+                () => SizedBox(
+                  width: double.infinity,
+                  height: 52,
+                  child: ElevatedButton(
+                    onPressed: controller.isLoading.value
+                        ? null
+                        : () async {
+                            controller.isLoading.value = true;
+
+                            try {
+                              await controller.loginPartner();
+                            } finally {
+                              controller.isLoading.value = false;
+                            }
+                          },
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: AppColors.secondaryLight,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(14),
+                      ),
+                    ),
+                    child: controller.isLoading.value
+                        ? loader()
+                        : Text("login".tr),
+                  ),
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );

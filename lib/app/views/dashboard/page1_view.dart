@@ -58,7 +58,7 @@ class Page1View extends GetView<DashboardController> {
                                           Positioned(
                                             bottom: 10,
                                             child: Text(
-                                              "Tap to scan",
+                                              "tap_to_scan".tr,
                                               style: TextStyle(
                                                 color: Colors.white
                                                     .withOpacity(0.9),
@@ -72,9 +72,9 @@ class Page1View extends GetView<DashboardController> {
                                     ),
                                   )),
                               const SizedBox(height: 30),
-                              const Text(
-                                "Scan Customer QR Code",
-                                style: TextStyle(
+                              Text(
+                                "scan_customer_qr_code".tr,
+                                style: const TextStyle(
                                   color: Colors.white,
                                   fontSize: 20,
                                   fontWeight: FontWeight.bold,
@@ -94,11 +94,11 @@ class Page1View extends GetView<DashboardController> {
             // ==================== TODAY'S JOBS ====================
             // ==================== PREVIOUS SERVICE ====================
             const SizedBox(height: 30),
-            const Padding(
-              padding: EdgeInsets.symmetric(horizontal: 16),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16),
               child: Text(
-                "Previous Service",
-                style: TextStyle(
+                "previous_service".tr,
+                style: const TextStyle(
                   color: Colors.black,
                   fontWeight: FontWeight.w700,
                   fontSize: 20,
@@ -128,9 +128,9 @@ class Page1View extends GetView<DashboardController> {
                         )
                       ],
                     ),
-                    child: const Center(
+                    child: Center(
                       child: Text(
-                        "No previous services",
+                        "no_previous_services".tr,
                         style: TextStyle(color: Colors.black54),
                       ),
                     ),
@@ -182,21 +182,22 @@ class Page1View extends GetView<DashboardController> {
                       const SizedBox(height: 8),
 
                       Text(
-                        "Customer: ${item.customerName}",
+                        "customer".tr + ": ${item.customerName}",
                         style: const TextStyle(color: Colors.black54),
                       ),
 
                       const SizedBox(height: 6),
 
                       Text(
-                        "Vehicle: ${item.vehicleNumber}",
+                        "vehicle".tr + ": ${item.vehicleNumber}",
                         style: const TextStyle(color: Colors.black),
                       ),
 
                       const SizedBox(height: 6),
 
                       Text(
-                        "Admin Payable: ₹${item.adminPayable.toStringAsFixed(2)}",
+                        "admin_payable".tr +
+                            ": ₹${item.adminPayable.toStringAsFixed(2)}",
                         style: const TextStyle(
                           color: Colors.green,
                           fontWeight: FontWeight.w600,

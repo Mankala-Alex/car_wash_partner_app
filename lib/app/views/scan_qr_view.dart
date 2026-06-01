@@ -38,9 +38,9 @@ class ScanQrView extends GetView<ScanQrController> {
                     Get.back();
                   },
                 ),
-                const Text(
-                  "Scan QR",
-                  style: TextStyle(
+                Text(
+                  "scan_qr".tr,
+                  style: const TextStyle(
                       color: Colors.white,
                       fontSize: 18,
                       fontWeight: FontWeight.bold),
@@ -51,14 +51,14 @@ class ScanQrView extends GetView<ScanQrController> {
           ),
 
           // ---------------- INSTRUCTION TEXT ----------------
-          const Positioned(
+          Positioned(
             top: 120,
             left: 0,
             right: 0,
             child: Center(
               child: Text(
-                "Align QR code inside the frame",
-                style: TextStyle(color: Colors.white70, fontSize: 15),
+                "align_qr_code_inside_the_frame".tr,
+                style: const TextStyle(color: Colors.white70, fontSize: 15),
               ),
             ),
           ),
@@ -83,14 +83,14 @@ class ScanQrView extends GetView<ScanQrController> {
                   border: Border.all(color: Colors.white30),
                   color: Colors.white10,
                 ),
-                child: const Row(
+                child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Icon(Icons.keyboard, color: Colors.white),
-                    SizedBox(width: 10),
+                    const Icon(Icons.keyboard, color: Colors.white),
+                    const SizedBox(width: 10),
                     Text(
-                      "Enter Code Manually",
-                      style: TextStyle(color: Colors.white),
+                      "enter_code_manually".tr,
+                      style: const TextStyle(color: Colors.white),
                     ),
                   ],
                 ),

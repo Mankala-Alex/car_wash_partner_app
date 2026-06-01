@@ -23,9 +23,9 @@ class SelectServiceView extends GetView<SelectServiceController> {
           //   child: const Icon(Icons.arrow_back, color: Colors.black),
           // ),
           centerTitle: true,
-          title: const Text(
-            "Select Services",
-            style: TextStyle(
+          title: Text(
+            "select_services".tr,
+            style: const TextStyle(
               fontWeight: FontWeight.w700,
               color: Colors.black,
             ),
@@ -42,9 +42,9 @@ class SelectServiceView extends GetView<SelectServiceController> {
                     children: [
                       // ================= WASH PACKAGES =================
                       const SizedBox(height: 10),
-                      const Text(
-                        "Wash Packages",
-                        style: TextStyle(
+                      Text(
+                        "wash_packages".tr,
+                        style: const TextStyle(
                           fontWeight: FontWeight.w700,
                           fontSize: 20,
                         ),
@@ -62,8 +62,8 @@ class SelectServiceView extends GetView<SelectServiceController> {
                         }
 
                         if (controller.services.isEmpty) {
-                          return const Center(
-                              child: Text("No services available"));
+                          return Center(
+                              child: Text("no_services_available".tr));
                         }
 
                         return Column(
@@ -101,8 +101,8 @@ class SelectServiceView extends GetView<SelectServiceController> {
                     GestureDetector(
                       onTap: () {
                         if (controller.selectedService.value == null) {
-                          Get.snackbar("Select Service",
-                              "Please select a service to continue");
+                          Get.snackbar("select_service".tr,
+                              "please_select_a_service_to_continue".tr);
                           return;
                         }
 
@@ -124,19 +124,20 @@ class SelectServiceView extends GetView<SelectServiceController> {
                           color: AppColors.secondaryLight,
                           borderRadius: BorderRadius.circular(14),
                         ),
-                        child: const Center(
+                        child: Center(
                           child: Row(
                             mainAxisSize: MainAxisSize.min,
                             children: [
                               Text(
-                                "Confirm Order",
-                                style: TextStyle(
+                                "confirm_order".tr,
+                                style: const TextStyle(
                                     color: Colors.white,
                                     fontSize: 18,
                                     fontWeight: FontWeight.w700),
                               ),
-                              SizedBox(width: 8),
-                              Icon(Icons.arrow_forward, color: Colors.white),
+                              const SizedBox(width: 8),
+                              const Icon(Icons.arrow_forward,
+                                  color: Colors.white),
                             ],
                           ),
                         ),
@@ -156,9 +157,9 @@ class SelectServiceView extends GetView<SelectServiceController> {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          const Text(
-                            "Cost Breakdown",
-                            style: TextStyle(
+                          Text(
+                            "cost_breakdown".tr,
+                            style: const TextStyle(
                               fontWeight: FontWeight.w700,
                               fontSize: 18,
                             ),
@@ -169,7 +170,7 @@ class SelectServiceView extends GetView<SelectServiceController> {
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              const Text("Original Price"),
+                              Text("original_price".tr),
                               Text(
                                 "\$${controller.originalPrice.toStringAsFixed(2)}",
                                 style: const TextStyle(
@@ -183,12 +184,12 @@ class SelectServiceView extends GetView<SelectServiceController> {
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              const Row(
+                              Row(
                                 children: [
-                                  Icon(Icons.local_offer,
+                                  const Icon(Icons.local_offer,
                                       size: 18, color: AppColors.blue),
-                                  SizedBox(width: 6),
-                                  Text("Partner Discount"),
+                                  const SizedBox(width: 6),
+                                  Text("partner_discount".tr),
                                 ],
                               ),
                               Text(
@@ -204,9 +205,9 @@ class SelectServiceView extends GetView<SelectServiceController> {
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              const Text(
-                                "Total to Pay",
-                                style: TextStyle(
+                              Text(
+                                "total_to_pay".tr,
+                                style: const TextStyle(
                                     fontWeight: FontWeight.w700, fontSize: 18),
                               ),
                               Text(
@@ -225,9 +226,9 @@ class SelectServiceView extends GetView<SelectServiceController> {
 
                     const SizedBox(height: 10),
 
-                    const Text(
-                      "Discount automatically applied for QR code customers.",
-                      style: TextStyle(color: Colors.blue),
+                    Text(
+                      "discount_automatically_applied_for_qr_code_customers".tr,
+                      style: const TextStyle(color: Colors.blue),
                       textAlign: TextAlign.center,
                     ),
                   ],

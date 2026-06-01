@@ -195,23 +195,35 @@ class ApiService {
               return;
             }
             if (error.response?.statusCode == 401) {
-              // Token Invalid - Just Logout
-              // await Get.dialog(
-              //   CustomConfirmationDialog(
-              //     header: "Alert!",
-              //     body: 'You are logged in another device',
-              //     onYes: () {
-              //       Get.back();
-              //       logout();
-              //     },
-              //     yesText: "Login here",
-              //   ),
-              //   barrierColor: Constants.bgBackDropColor,
-              //   barrierDismissible: false, // Prevents closing the dialog by tapping outside
-              // );
+              final requestPath = error.requestOptions.path;
+
+              // ❌ Don't logout for login API failure
+              if (requestPath.contains('/partners/auth/login')) {
+                return handler.next(error);
+              }
+
+              // ✅ Logout only for protected APIs
               logout();
               return;
             }
+            // if (error.response?.statusCode == 401) {
+            //   // Token Invalid - Just Logout
+            //   // await Get.dialog(
+            //   //   CustomConfirmationDialog(
+            //   //     header: "Alert!",
+            //   //     body: 'You are logged in another device',
+            //   //     onYes: () {
+            //   //       Get.back();
+            //   //       logout();
+            //   //     },
+            //   //     yesText: "Login here",
+            //   //   ),
+            //   //   barrierColor: Constants.bgBackDropColor,
+            //   //   barrierDismissible: false, // Prevents closing the dialog by tapping outside
+            //   // );
+            //   logout();
+            //   return;
+            // }
             // if (error.response?.statusCode == 303) {
             //   // AccessToken Expired - Get new AccessToken by using Refresh Token.
 
@@ -300,7 +312,8 @@ class ApiService {
         return response;
       } catch (error) {
         // fnHandleControllerException(error, stackTrace, "ApiService", "post");
-        return null; // or rethrow the error based on your need
+        // return null; // or rethrow the error based on your need
+        rethrow;
       }
     } else {
       if (isInternetDialouge || true) {

@@ -12,7 +12,7 @@ class AllServicesView extends GetView<AllServicesController> {
     return Scaffold(
       backgroundColor: AppColors.bgLight,
       appBar: AppBar(
-        title: const Text("Partner Services"),
+        title: Text("partner_services".tr),
         centerTitle: true,
         backgroundColor: AppColors.bgLight,
       ),
@@ -22,8 +22,8 @@ class AllServicesView extends GetView<AllServicesController> {
         }
 
         if (controller.services.isEmpty) {
-          return const Center(
-            child: Text("No services added yet"),
+          return Center(
+            child: Text("no_services_added_yet".tr),
           );
         }
 
@@ -86,22 +86,24 @@ class AllServicesView extends GetView<AllServicesController> {
                             onPressed: () {
                               Get.dialog(
                                 AlertDialog(
-                                  title: const Text("Delete Service"),
-                                  content: const Text(
-                                      "Are you sure you want to delete this service?"),
+                                  title: Text("delete_service".tr),
+                                  content: Text(
+                                      "are_you_sure_you_want_to_delete_this_service"
+                                          .tr),
                                   actions: [
                                     TextButton(
                                       onPressed: () => Get.back(),
-                                      child: const Text("Cancel"),
+                                      child: Text("cancel".tr),
                                     ),
                                     TextButton(
                                       onPressed: () {
                                         Get.back();
                                         controller.deleteService(service.id);
                                       },
-                                      child: const Text(
-                                        "Delete",
-                                        style: TextStyle(color: Colors.red),
+                                      child: Text(
+                                        "delete".tr,
+                                        style:
+                                            const TextStyle(color: Colors.red),
                                       ),
                                     ),
                                   ],
@@ -144,14 +146,14 @@ class AllServicesView extends GetView<AllServicesController> {
         },
         backgroundColor: AppColors.secondaryLight,
         icon: const Icon(Icons.add, color: Colors.white),
-        label: const SizedBox(
+        label: SizedBox(
           width: 90, // 👈 controls wrap width
           child: Text(
-            "Add Service",
+            "add_service".tr,
             textAlign: TextAlign.center,
             maxLines: 2, // 👈 allows wrap
             overflow: TextOverflow.visible,
-            style: TextStyle(
+            style: const TextStyle(
               fontSize: 14,
               fontWeight: FontWeight.w700,
               color: Colors.white,
