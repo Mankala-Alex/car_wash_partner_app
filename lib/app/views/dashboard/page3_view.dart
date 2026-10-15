@@ -93,7 +93,7 @@ class Page3View extends GetView<DashboardController> {
 
                   // Status
                   Obx(() => Text(
-                        "owner".tr + ": ${controller.ownerName.value}",
+                        "${"owner".tr}: ${controller.ownerName.value}",
                         style: const TextStyle(
                           fontSize: 16,
                           color: Colors.blueGrey,

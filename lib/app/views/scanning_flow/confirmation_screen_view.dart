@@ -1,3 +1,4 @@
+import 'package:car_wash_partner/app/theme/app_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:car_wash_partner/app/controllers/scanning_flow/confirmation_screen_controller.dart';
@@ -33,7 +34,7 @@ class ConfirmationScreenView extends GetView<ConfirmationScreenController> {
               Container(
                 padding: const EdgeInsets.all(30),
                 decoration: BoxDecoration(
-                  color: Colors.green.withOpacity(0.1),
+                  color: Colors.green.withValues(alpha: 0.1),
                   shape: BoxShape.circle,
                 ),
                 child: const Icon(
@@ -102,6 +103,9 @@ class ConfirmationScreenView extends GetView<ConfirmationScreenController> {
                   onPressed: () {
                     Get.toNamed(Routes.dashboard);
                   },
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: AppColors.secondaryLight,
+                  ),
                   child: const Text(
                     "Cash Collected",
                     style: TextStyle(
@@ -139,7 +143,7 @@ class ConfirmationScreenView extends GetView<ConfirmationScreenController> {
         borderRadius: BorderRadius.circular(18),
         boxShadow: [
           BoxShadow(
-            color: Colors.black12.withOpacity(0.05),
+            color: Colors.black12.withValues(alpha: 0.05),
             blurRadius: 8,
             offset: const Offset(0, 3),
           )
@@ -149,7 +153,7 @@ class ConfirmationScreenView extends GetView<ConfirmationScreenController> {
         children: [
           CircleAvatar(
             radius: 26,
-            backgroundColor: iconColor.withOpacity(0.15),
+            backgroundColor: iconColor.withValues(alpha: 0.15),
             child: Icon(icon, color: iconColor, size: 26),
           ),
           const SizedBox(width: 14),
@@ -201,7 +205,7 @@ class ConfirmationScreenView extends GetView<ConfirmationScreenController> {
         borderRadius: BorderRadius.circular(18),
         boxShadow: [
           BoxShadow(
-            color: Colors.black12.withOpacity(0.06),
+            color: Colors.black12.withValues(alpha: 0.06),
             blurRadius: 8,
             offset: const Offset(0, 3),
           )
@@ -225,7 +229,7 @@ class ConfirmationScreenView extends GetView<ConfirmationScreenController> {
                 padding:
                     const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
                 decoration: BoxDecoration(
-                  color: Colors.green.withOpacity(0.12),
+                  color: Colors.green.withValues(alpha: 0.12),
                   borderRadius: BorderRadius.circular(12),
                 ),
                 child: Text(

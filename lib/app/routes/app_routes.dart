@@ -3,7 +3,8 @@ abstract class Routes {
   static const langeSelection = '/lange_selection';
   static const login = '/login';
 
-  static const otpPage = '/otp_view_page';
+  static const singup = '/signup';
+  static const registrationPending = '/registration_pending';
 
   //dashboard
   static const dashboard = '/dashboard_view';

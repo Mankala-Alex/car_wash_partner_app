@@ -16,7 +16,7 @@ class DashboardView extends GetView<DashboardController> {
     const Page3View(),
   ];
   @override
-  final DashboardController controller = Get.put(DashboardController());
+  final DashboardController controller = Get.find();
 
   @override
   Widget build(BuildContext context) {
@@ -76,9 +76,9 @@ class DashboardView extends GetView<DashboardController> {
               ),
               items: List.generate(3, (index) {
                 List<String> labels = [
-                  "Home".tr,
-                  "History".tr,
-                  "Profile".tr,
+                  "home".tr,
+                  "history".tr,
+                  "profile".tr,
                 ];
                 List<String> icons = [
                   'assets/icons/home.png',

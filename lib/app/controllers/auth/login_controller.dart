@@ -1,3 +1,4 @@
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:dio/dio.dart';
@@ -48,6 +49,8 @@ class LoginController extends GetxController {
           token,
         );
 
+        await registerFcmToken();
+
         Get.offAllNamed(Routes.dashboard);
       }
     } on DioException catch (e) {
@@ -63,4 +66,23 @@ class LoginController extends GetxController {
   //   passwordController.dispose();
   //   super.onClose();
   // }
+
+  Future<void> registerFcmToken() async {
+    try {
+      final fcmToken = await FirebaseMessaging.instance.getToken();
+
+      if (fcmToken == null || fcmToken.isEmpty) {
+        debugPrint('FCM token is null');
+        return;
+      }
+
+      await _repo.registerPartnerFcmToken({
+        "fcmToken": fcmToken,
+      });
+
+      debugPrint('Partner FCM token registered');
+    } catch (e) {
+      debugPrint('FCM token registration failed: $e');
+    }
+  }
 }

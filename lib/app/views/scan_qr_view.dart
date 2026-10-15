@@ -21,7 +21,7 @@ class ScanQrView extends GetView<ScanQrController> {
           ),
 
           // Slight dark overlay
-          Container(color: Colors.black.withOpacity(0.25)),
+          Container(color: Colors.black.withValues(alpha: 0.25)),
 
           // ---------------- TOP BAR ----------------
           Positioned(

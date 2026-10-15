@@ -111,7 +111,7 @@ class LangChangeView extends GetView<LangChangeController> {
           ),
           boxShadow: [
             BoxShadow(
-              color: Colors.black.withOpacity(isSelected ? 0.12 : 0.05),
+              color: Colors.black.withValues(alpha: isSelected ? 0.12 : 0.05),
               blurRadius: isSelected ? 14 : 8,
               offset: const Offset(0, 4),
             )

@@ -52,7 +52,7 @@ class NoInternetConnection extends StatelessWidget {
                   Get.back();
                   Get.dialog(
                     const NoInternetConnection(),
-                    barrierColor: const Color(0xFF000000).withOpacity(0.7),
+                    barrierColor: const Color(0xFF000000).withValues(alpha: 0.7),
                     barrierDismissible:
                         false, // Prevents closing the dialog by tapping outside
                   );

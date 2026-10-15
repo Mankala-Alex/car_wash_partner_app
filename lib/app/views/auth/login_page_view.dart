@@ -1,3 +1,4 @@
+import 'package:car_wash_partner/app/routes/app_routes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:car_wash_partner/app/controllers/auth/login_controller.dart';
@@ -167,6 +168,33 @@ class LoginPageView extends GetView<LoginController> {
                     child: controller.isLoading.value
                         ? loader()
                         : Text("login".tr),
+                  ),
+                ),
+              ),
+
+              const SizedBox(height: 16),
+
+              SizedBox(
+                width: double.infinity,
+                height: 52,
+                child: OutlinedButton(
+                  onPressed: () {
+                    Get.toNamed(Routes.singup);
+                  },
+                  style: OutlinedButton.styleFrom(
+                    side: const BorderSide(
+                      color: AppColors.secondaryLight,
+                    ),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(14),
+                    ),
+                  ),
+                  child: Text(
+                    "register_as_partner".tr,
+                    style: const TextStyle(
+                      color: AppColors.secondaryLight,
+                      fontWeight: FontWeight.w600,
+                    ),
                   ),
                 ),
               ),

@@ -44,7 +44,7 @@ class Page1View extends GetView<DashboardController> {
                                       width: 260,
                                       height: 260,
                                       decoration: BoxDecoration(
-                                        color: Colors.white.withOpacity(0.15),
+                                        color: Colors.white.withValues(alpha: 0.15),
                                         borderRadius: BorderRadius.circular(22),
                                       ),
                                       child: Stack(
@@ -61,7 +61,7 @@ class Page1View extends GetView<DashboardController> {
                                               "tap_to_scan".tr,
                                               style: TextStyle(
                                                 color: Colors.white
-                                                    .withOpacity(0.9),
+                                                    .withValues(alpha: 0.9),
                                                 fontWeight: FontWeight.w600,
                                                 fontSize: 14,
                                               ),
@@ -122,7 +122,7 @@ class Page1View extends GetView<DashboardController> {
                       borderRadius: BorderRadius.circular(16),
                       boxShadow: [
                         BoxShadow(
-                          color: Colors.black12.withOpacity(0.05),
+                          color: Colors.black12.withValues(alpha: 0.05),
                           blurRadius: 8,
                           offset: const Offset(0, 3),
                         )
@@ -131,7 +131,7 @@ class Page1View extends GetView<DashboardController> {
                     child: Center(
                       child: Text(
                         "no_previous_services".tr,
-                        style: TextStyle(color: Colors.black54),
+                        style: const TextStyle(color: Colors.black54),
                       ),
                     ),
                   );
@@ -182,22 +182,21 @@ class Page1View extends GetView<DashboardController> {
                       const SizedBox(height: 8),
 
                       Text(
-                        "customer".tr + ": ${item.customerName}",
+                        "${"customer".tr}: ${item.customerName}",
                         style: const TextStyle(color: Colors.black54),
                       ),
 
                       const SizedBox(height: 6),
 
                       Text(
-                        "vehicle".tr + ": ${item.vehicleNumber}",
+                        "${"vehicle".tr}: ${item.vehicleNumber}",
                         style: const TextStyle(color: Colors.black),
                       ),
 
                       const SizedBox(height: 6),
 
                       Text(
-                        "admin_payable".tr +
-                            ": ₹${item.adminPayable.toStringAsFixed(2)}",
+                        "${"admin_payable".tr}: ₹${item.adminPayable.toStringAsFixed(2)}",
                         style: const TextStyle(
                           color: Colors.green,
                           fontWeight: FontWeight.w600,

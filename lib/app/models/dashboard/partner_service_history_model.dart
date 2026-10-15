@@ -8,6 +8,8 @@ class PartnerServiceHistoryModel {
   final int discountPercent;
   final String customerName;
   final String vehicleNumber;
+  final String paymentStatus;
+  final DateTime? paidAt;
   final DateTime createdAt;
 
   PartnerServiceHistoryModel({
@@ -20,6 +22,8 @@ class PartnerServiceHistoryModel {
     required this.discountPercent,
     required this.customerName,
     required this.vehicleNumber,
+    required this.paymentStatus,
+    required this.paidAt,
     required this.createdAt,
   });
 
@@ -28,12 +32,14 @@ class PartnerServiceHistoryModel {
       id: json['id'],
       serviceName: json['service_name'],
       couponCode: json['coupon_code'],
-      originalAmount: double.parse(json['original_amount']),
-      finalAmount: double.parse(json['final_amount']),
-      adminPayable: double.parse(json['admin_payable']),
-      discountPercent: json['discount_percent'],
+      originalAmount: double.parse(json['original_amount'].toString()),
+      finalAmount: double.parse(json['final_amount'].toString()),
+      adminPayable: double.parse(json['admin_payable'].toString()),
+      discountPercent: int.parse(json['discount_percent'].toString()),
       customerName: json['customer_name'] ?? "N/A",
       vehicleNumber: json['vehicle_number'] ?? "N/A",
+      paymentStatus: json['payment_status'] ?? "",
+      paidAt: json['paid_at'] != null ? DateTime.parse(json['paid_at']) : null,
       createdAt: DateTime.parse(json['created_at']),
     );
   }

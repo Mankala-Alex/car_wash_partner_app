@@ -38,68 +38,68 @@ class PaymentScreenView extends GetView<PaymentScreenController> {
               const SizedBox(height: 20),
 
               // Scan card with icon instead of QR
-              Container(
-                width: double.infinity,
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 24, vertical: 28),
-                decoration: BoxDecoration(
-                  boxShadow: const [
-                    BoxShadow(
-                      color: Colors.grey,
-                      blurRadius: 10,
-                      offset: Offset(0, 4),
-                    ),
-                  ],
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(24),
-                ),
-                child: Column(
-                  children: [
-                    Text(
-                      'scan_to_complete_payment'.tr,
-                      style: const TextStyle(
-                        fontSize: 14,
-                        color: Colors.grey,
-                      ),
-                    ),
-                    const SizedBox(height: 20),
-                    Container(
-                      width: 220,
-                      height: 220,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(24),
-                        border: Border.all(
-                          color: CustomTheme.of(context).secondaryColor,
-                          width: 3,
-                        ),
-                      ),
-                      child: const Center(
-                        child: Icon(
-                          Icons.payment, // any icon instead of QR
-                          size: 72,
-                          color: Colors.black87,
-                        ),
-                      ),
-                    ),
-                    const SizedBox(height: 16),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        const Icon(Icons.wifi_tethering,
-                            size: 16, color: Colors.blue),
-                        const SizedBox(width: 6),
-                        Text(
-                          'waiting_for_scan'.tr,
-                          style: const TextStyle(
-                            fontSize: 13,
-                            color: Colors.blueGrey,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
-              ),
+              // Container(
+              //   width: double.infinity,
+              //   padding:
+              //       const EdgeInsets.symmetric(horizontal: 24, vertical: 28),
+              //   decoration: BoxDecoration(
+              //     boxShadow: const [
+              //       BoxShadow(
+              //         color: Colors.grey,
+              //         blurRadius: 10,
+              //         offset: Offset(0, 4),
+              //       ),
+              //     ],
+              //     color: Colors.white,
+              //     borderRadius: BorderRadius.circular(24),
+              //   ),
+              //   child: Column(
+              //     children: [
+              //       Text(
+              //         'scan_to_complete_payment'.tr,
+              //         style: const TextStyle(
+              //           fontSize: 14,
+              //           color: Colors.grey,
+              //         ),
+              //       ),
+              //       const SizedBox(height: 20),
+              //       Container(
+              //         width: 220,
+              //         height: 220,
+              //         decoration: BoxDecoration(
+              //           borderRadius: BorderRadius.circular(24),
+              //           border: Border.all(
+              //             color: CustomTheme.of(context).secondaryColor,
+              //             width: 3,
+              //           ),
+              //         ),
+              //         child: const Center(
+              //           child: Icon(
+              //             Icons.payment, // any icon instead of QR
+              //             size: 72,
+              //             color: Colors.black87,
+              //           ),
+              //         ),
+              //       ),
+              //       const SizedBox(height: 16),
+              //       Row(
+              //         mainAxisAlignment: MainAxisAlignment.center,
+              //         children: [
+              //           const Icon(Icons.wifi_tethering,
+              //               size: 16, color: Colors.blue),
+              //           const SizedBox(width: 6),
+              //           Text(
+              //             'waiting_for_scan'.tr,
+              //             style: const TextStyle(
+              //               fontSize: 13,
+              //               color: Colors.blueGrey,
+              //             ),
+              //           ),
+              //         ],
+              //       ),
+              //     ],
+              //   ),
+              // ),
 
               const SizedBox(height: 20),
 
@@ -225,43 +225,78 @@ class PaymentScreenView extends GetView<PaymentScreenController> {
                 ),
               ),
 
-              const SizedBox(height: 20),
+              // const SizedBox(height: 20),
 
-              // Bottom buttons
-              Row(
-                children: [
-                  // const SizedBox(width: 12),
-                  Expanded(
-                    child: ElevatedButton(
-                      onPressed: controller.isLoading.value
-                          ? null
-                          : controller.redeemAndContinue,
-                      style: ElevatedButton.styleFrom(
-                        padding: const EdgeInsets.symmetric(vertical: 16),
-                        backgroundColor: CustomTheme.of(context).secondaryColor,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(16),
-                        ),
-                      ),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text(
-                            'done'.tr,
-                            style: const TextStyle(
-                              fontWeight: FontWeight.w600,
-                              fontSize: 15,
-                            ),
-                          ),
-                          const SizedBox(width: 10),
-                          const Icon(Icons.check, size: 18),
-                        ],
+              // // Bottom buttons
+              // Row(
+              //   children: [
+              //     // const SizedBox(width: 12),
+              //     Expanded(
+              //       child: ElevatedButton(
+              //         onPressed: controller.isLoading.value
+              //             ? null
+              //             : controller.redeemAndContinue,
+              //         style: ElevatedButton.styleFrom(
+              //           padding: const EdgeInsets.symmetric(vertical: 16),
+              //           backgroundColor: CustomTheme.of(context).secondaryColor,
+              //           shape: RoundedRectangleBorder(
+              //             borderRadius: BorderRadius.circular(16),
+              //           ),
+              //         ),
+              //         child: Row(
+              //           mainAxisAlignment: MainAxisAlignment.center,
+              //           children: [
+              //             Text(
+              //               'done'.tr,
+              //               style: const TextStyle(
+              //                 fontWeight: FontWeight.w600,
+              //                 fontSize: 15,
+              //               ),
+              //             ),
+              //             const SizedBox(width: 10),
+              //             const Icon(Icons.check, size: 18),
+              //           ],
+              //         ),
+              //       ),
+              //     ),
+              //   ],
+              // ),
+            ],
+          ),
+        ),
+        bottomNavigationBar: SafeArea(
+          child: Padding(
+            padding: const EdgeInsets.fromLTRB(16, 10, 16, 16),
+            child: SizedBox(
+              width: double.infinity,
+              height: 55,
+              child: ElevatedButton(
+                onPressed: controller.isLoading.value
+                    ? null
+                    : controller.redeemAndContinue,
+                style: ElevatedButton.styleFrom(
+                  padding: const EdgeInsets.symmetric(vertical: 16),
+                  backgroundColor: CustomTheme.of(context).secondaryColor,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(16),
+                  ),
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      'done'.tr,
+                      style: const TextStyle(
+                        fontWeight: FontWeight.w600,
+                        fontSize: 15,
                       ),
                     ),
-                  ),
-                ],
+                    const SizedBox(width: 10),
+                    const Icon(Icons.check, size: 18),
+                  ],
+                ),
               ),
-            ],
+            ),
           ),
         ),
       ),

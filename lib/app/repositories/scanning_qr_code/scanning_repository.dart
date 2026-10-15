@@ -24,9 +24,18 @@ class ScanningRepository {
     );
   }
 
-  Future<Response> getPartnerHistory(String partnerId) async {
+  Future<Response> getPartnerHistory(
+    String partnerId, {
+    int? month,
+    int? year,
+  }) async {
+    final Map<String, dynamic> query = {};
+    if (month != null) query['month'] = month;
+    if (year != null) query['year'] = year;
+
     return await ApiService.get(
       "${EndPoints.apigetPartnerServiceHistory}/$partnerId/history",
+      queryParameters: query.isEmpty ? null : query,
       requireAuthToken: true,
     );
   }

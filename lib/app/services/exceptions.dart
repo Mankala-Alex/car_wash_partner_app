@@ -51,6 +51,8 @@ String handleDioExceptions(DioException e) {
       errorMessage = ExceptionMessages.sendTimeout;
     case DioExceptionType.receiveTimeout:
       errorMessage = ExceptionMessages.receiveTimeout;
+    case DioExceptionType.transformTimeout:
+      errorMessage = "Transform Timeout";
     case DioExceptionType.badCertificate:
       errorMessage = ExceptionMessages.badCertificate;
     case DioExceptionType.cancel:

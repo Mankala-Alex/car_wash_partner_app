@@ -13,6 +13,11 @@ class DashboardController extends GetxController {
   var historyList = <PartnerServiceHistoryModel>[].obs;
   var filteredHistoryList = <PartnerServiceHistoryModel>[].obs;
   var isHistoryLoading = false.obs;
+  var isFilterLoading = false.obs;
+
+  // 🔥 Month / Year filter state (month 0 = All months)
+  var selectedMonth = 0.obs;
+  var selectedYear = DateTime.now().year.obs;
 
   // 🔥 Animation variable for QR tap
   var qrScale = 1.0.obs;
@@ -33,10 +38,6 @@ class DashboardController extends GetxController {
   }
 
   //history screen
-  // Search text
-  var searchQuery = "".obs;
-
-  // Sample service history → you can replace from API
 
   //profile screen
 
@@ -66,51 +67,71 @@ class DashboardController extends GetxController {
     //status.value = "Community Partner"; // or use backend status
   }
 
-  Future<void> fetchPartnerHistory() async {
+  Future<void> fetchPartnerHistory({int? month, int? year}) async {
+    final isFilter = month != null && year != null;
     try {
-      isHistoryLoading.value = true;
+      if (isFilter) {
+        isFilterLoading.value = true;
+      } else {
+        isHistoryLoading.value = true;
+      }
 
       final partnerId = await SharedPrefsHelper.getString("partnerId") ?? "";
       if (partnerId.isEmpty) return;
 
-      final resp = await repository.getPartnerHistory(partnerId);
+      final resp = await repository.getPartnerHistory(
+        partnerId,
+        month: month,
+        year: year,
+      );
+
       final List list = resp.data['data'];
 
       final data =
           list.map((e) => PartnerServiceHistoryModel.fromJson(e)).toList();
 
-      historyList.value = data;
-      filteredHistoryList.value = data; // 🔥 initialize filtered list
+      if (isFilter) {
+        filteredHistoryList.value = data;
+      } else {
+        historyList.value = data;
+        filteredHistoryList.value = data; // 🔥 initialize filtered list
+      }
     } catch (e) {
       print("❌ History fetch error: $e");
     } finally {
-      isHistoryLoading.value = false;
+      if (isFilter) {
+        isFilterLoading.value = false;
+      } else {
+        isHistoryLoading.value = false;
+      }
     }
   }
 
-// 🔥 Total Admin Payable (reactive)
+  // 🔥 Called when month / year filter changes
+  Future<void> applyMonthYearFilter(int month, int year) async {
+    selectedMonth.value = month;
+    selectedYear.value = year;
+
+    // month 0 = All → fetch everything without filters
+    await fetchPartnerHistory(
+      month: month == 0 ? null : month,
+      year: month == 0 ? null : year,
+    );
+  }
+
+// 🔥 Total Admin Payable (reactive) — based on the currently shown list
   double get totalAdminPayable {
-    return historyList.fold(
+    return filteredHistoryList.fold(
       0.0,
       (sum, item) => sum + item.adminPayable,
     );
   }
 
-  void onSearchChanged(String query) {
-    searchQuery.value = query;
-
-    if (query.isEmpty) {
-      filteredHistoryList.value = historyList;
-      return;
-    }
-
-    final q = query.toLowerCase();
-
-    filteredHistoryList.value = historyList.where((item) {
-      return item.serviceName.toLowerCase().contains(q) ||
-          item.customerName.toLowerCase().contains(q) ||
-          item.vehicleNumber.toLowerCase().contains(q);
-    }).toList();
+  // 🔥 Admin Paid amount — sum of admin payable where payment is PAID
+  double get totalAdminPaid {
+    return filteredHistoryList
+        .where((item) => item.paymentStatus.toUpperCase() == "PAID")
+        .fold(0.0, (sum, item) => sum + item.adminPayable);
   }
 
   Future<void> logout() async {

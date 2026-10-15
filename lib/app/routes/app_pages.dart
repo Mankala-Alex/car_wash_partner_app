@@ -1,3 +1,7 @@
+import 'package:car_wash_partner/app/bindings/auth/registration_pending_binding.dart';
+import 'package:car_wash_partner/app/bindings/auth/signup_binding.dart';
+import 'package:car_wash_partner/app/views/auth/registration_pending_view.dart';
+import 'package:car_wash_partner/app/views/auth/signup_view.dart';
 import 'package:get/get_navigation/src/routes/get_route.dart';
 import 'package:get/route_manager.dart';
 import 'package:car_wash_partner/app/bindings/profile/add_service_binding.dart';
@@ -50,11 +54,16 @@ class AppPages {
       page: () => const LoginPageView(),
       binding: LoginBinding(),
     ),
-    // GetPage(
-    //   name: Routes.otpPage,
-    //   page: () => const OtpScreenView(),
-    //   binding: OtpBinding(),
-    // ),
+    GetPage(
+      name: Routes.singup,
+      page: () => const SignupView(),
+      binding: SignupBinding(),
+    ),
+    GetPage(
+      name: Routes.registrationPending,
+      page: () => const RegistrationPendingView(),
+      binding: RegistrationPendingBinding(),
+    ),
 
     //dashboard
 
